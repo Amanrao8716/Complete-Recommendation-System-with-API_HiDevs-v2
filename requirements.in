@@ -1,0 +1,6 @@
+# Direct runtime dependencies (loose ranges). The pinned, reproducible
+# set lives in requirements.txt. Regenerate it with:
+#   pip install pip-tools && pip-compile --generate-hashes requirements.in
+Flask>=3.0,<4.0
+SQLAlchemy>=2.0,<2.2
+gunicorn>=22.0

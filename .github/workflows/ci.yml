@@ -1,0 +1,44 @@
+name: CI
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ["3.11", "3.12"]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+          cache: pip
+          cache-dependency-path: requirements-dev.txt
+      - run: pip install -r requirements-dev.txt
+      - name: Lint
+        run: |
+          flake8 .
+          black --check .
+      - name: Type check
+        run: mypy
+        continue-on-error: true   # remove once the first run is clean
+      - name: Tests with coverage
+        run: pytest --cov --cov-fail-under=85 --cov-report=term-missing
+
+  docker:
+    runs-on: ubuntu-latest
+    needs: test
+    steps:
+      - uses: actions/checkout@v4
+      - run: docker build -t recsys .
+      - name: Smoke test the container
+        run: |
+          docker run -d --name recsys -p 5000:5000 recsys
+          for i in $(seq 1 30); do
+            curl -fs localhost:5000/health && break || sleep 1
+          done
+          curl -fs localhost:5000/recommend/1 | head -c 300
+          docker logs recsys | tail -5

@@ -1,0 +1,16 @@
+# Local production-like run:  docker compose up --build
+services:
+  api:
+    build: .
+    ports:
+      - "${PORT:-5000}:5000"
+    environment:
+      API_KEY: "${API_KEY:-}"
+      LOG_LEVEL: "${LOG_LEVEL:-INFO}"
+      CACHE_TTL: "${CACHE_TTL:-300}"
+    volumes:
+      - recsys-data:/data
+    restart: unless-stopped
+
+volumes:
+  recsys-data:

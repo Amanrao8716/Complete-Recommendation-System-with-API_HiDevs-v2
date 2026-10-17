@@ -1,0 +1,21 @@
+[tool.black]
+line-length = 79
+target-version = ["py311"]
+
+[tool.mypy]
+python_version = "3.11"
+files = ["api", "common", "data", "engine", "scripts"]
+disallow_untyped_defs = true
+disallow_incomplete_defs = true
+check_untyped_defs = true
+warn_return_any = false
+warn_unused_ignores = false
+ignore_missing_imports = true
+
+[tool.coverage.run]
+source = ["api", "common", "data", "engine"]
+branch = true
+
+[tool.coverage.report]
+show_missing = true
+skip_empty = true

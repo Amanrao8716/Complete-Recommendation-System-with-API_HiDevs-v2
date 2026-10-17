@@ -1,0 +1,8 @@
+# Direct development dependencies (loose). Pinned set: requirements-dev.txt
+-r requirements.in
+matplotlib>=3.8      # charts in scripts/evaluate.py (not needed at runtime)
+pytest>=8.0
+pytest-cov>=5.0
+flake8>=7.0
+black>=24.0
+mypy>=1.10

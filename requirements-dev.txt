@@ -1,0 +1,29 @@
+# Development / CI dependencies, pinned. Install with:
+#   pip install -r requirements-dev.txt
+-r requirements.txt
+# --- tools ---
+black==24.10.0
+coverage==7.6.9
+flake8==7.1.1
+matplotlib==3.9.2
+mypy==1.13.0
+pytest==8.3.4
+pytest-cov==6.0.0
+# --- transitive dependencies ---
+contourpy==1.3.1
+cycler==0.12.1
+fonttools==4.55.3
+iniconfig==2.0.0
+kiwisolver==1.4.7
+mccabe==0.7.0
+mypy_extensions==1.0.0
+numpy==2.1.3
+pathspec==0.12.1
+pillow==11.0.0
+platformdirs==4.3.6
+pluggy==1.5.0
+pycodestyle==2.12.1
+pyflakes==3.2.0
+pyparsing==3.2.0
+python-dateutil==2.9.0.post0
+six==1.17.0

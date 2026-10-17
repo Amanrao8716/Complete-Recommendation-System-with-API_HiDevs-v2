@@ -1,0 +1,9 @@
+{
+  "hybrid": {
+    "skill_match": 0.30,
+    "category_affinity": 0.20,
+    "difficulty_fit": 0.15,
+    "collaborative": 0.25,
+    "popularity": 0.10
+  }
+}
