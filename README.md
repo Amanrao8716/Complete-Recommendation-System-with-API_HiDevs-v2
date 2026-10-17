@@ -234,3 +234,8 @@ and chart tools. Regenerate the pins with
   feedback (their cached lists expire after `CACHE_TTL`).
 - The evaluation dataset is synthetic; absolute metric values are only
   meaningful relative to the baselines.
+## 🎥 Project Demo
+
+[![Watch the Project Demo](https://img.youtube.com/vi/gCBZ4UgiULQ/maxresdefault.jpg)](https://youtu.be/gCBZ4UgiULQ)
+
+▶️ **[Watch the full demo on YouTube](https://youtu.be/gCBZ4UgiULQ)**
